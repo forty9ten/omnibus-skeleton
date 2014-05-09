@@ -1,0 +1,9 @@
+*.gem
+.bundle
+.kitchen/
+.kitchen.local.yml
+vendor/bundle
+pkg/*
+.vagrant
+files/**/cache/
+vendor/cookbooks
