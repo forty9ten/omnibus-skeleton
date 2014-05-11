@@ -8,6 +8,7 @@ if [[ `uname` == 'Darwin' ]]; then
   echo "sed argument might not be compatible with Darwin."
   echo "it is designed to run on linux."
   echo "exiting..."
+  exit 1
 fi
 
 # export is required because mv happens in a child shell
