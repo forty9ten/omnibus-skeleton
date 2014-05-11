@@ -28,7 +28,7 @@ cd "$SCRIPTPATH/.."
           -not -path "*/\.*"   \
           -not -path "*/bin/*" \
           -not -path "*/pkg/*" \
-          -exec sh -c 'mv "$0" "${0/$DEFAULT_PROJECT_NAME/$NEW_PROJECT_NAME}"' {} \; \
+          -exec sh -c 'git mv "$0" "${0/$DEFAULT_PROJECT_NAME/$NEW_PROJECT_NAME}"' {} \; \
           > /dev/null 2>&1
 
 cd - > /dev/null
