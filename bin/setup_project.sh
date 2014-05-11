@@ -13,6 +13,13 @@ pushd `dirname $0` > /dev/null
 SCRIPTPATH=`pwd`
 popd > /dev/null
 
+
+SED_BK_OPTION=""
+if [[ `uname` == 'Darwin' ]]; then
+  SED_BK_OPTION='""'
+fi
+
+
 cd "$SCRIPTPATH/.."
   # avoid this error:
   # sed: RE error: illegal byte sequence
@@ -22,7 +29,8 @@ cd "$SCRIPTPATH/.."
   find . -type f -not -path "*/\.*"   \
                  -not -path "*/bin/*" \
                  -not -path "*/pkg/*" \
-                 -exec sed -i "" "s/$DEFAULT_PROJECT_NAME/$NEW_PROJECT_NAME/g" {} \;
+                 -exec sed -i $SED_BK_OPTION \
+                          "s/$DEFAULT_PROJECT_NAME/$NEW_PROJECT_NAME/g" {} \;
 
   find .  -name "$DEFAULT_PROJECT_NAME*"    \
           -not -path "*/\.*"   \
@@ -35,3 +43,4 @@ cd "$SCRIPTPATH/.."
       config/projects/$NEW_PROJECT_NAME.rb
 
 cd - > /dev/null
+
