@@ -9,8 +9,8 @@ chown vagrant:vagrant #{install_path}
 SCRIPT
 
 Vagrant.configure("2") do |c|
-  c.vm.box = "omnibus-centos-6.5"
-  c.vm.box_url = "https://s3-us-west-2.amazonaws.com/3rd-party-artifacts-oregon/omnibus-300-default-centos-65.box"
+  c.vm.box = "forty9ten-omnibus-centos-6.5"
+  c.vm.box_url = "https://dl.dropboxusercontent.com/s/yyhxj65ezgijfq0/forty9ten-omnibus-300-default-centos-65.box"
   c.vm.hostname = "default-centos-65.vagrantup.com"
   c.vm.synced_folder ".", "/vagrant", disabled: true
   c.vm.synced_folder ".", "/home/vagrant/#{project_name}"
