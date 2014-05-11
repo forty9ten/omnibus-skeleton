@@ -31,7 +31,7 @@ cd "$SCRIPTPATH/.."
           -exec sh -c 'git mv "$0" "${0/$DEFAULT_PROJECT_NAME/$NEW_PROJECT_NAME}"' {} \; \
           > /dev/null 2>&1
 
-  sed -i "s/# dependency 'somedep'/dependency 'awesome'/g" \
+  sed -i "s/# dependency 'somedep'/dependency '$NEW_PROJECT_NAME'/g" \
       config/projects/$NEW_PROJECT_NAME.rb
 
 cd - > /dev/null
