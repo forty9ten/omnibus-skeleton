@@ -4,6 +4,12 @@ if [ "$#" -ne 1 ]; then
   echo "please pass in a project name.  single word, no spaces"
 fi
 
+if [[ `uname` == 'Darwin' ]]; then
+  echo "sed argument might not be compatible with Darwin."
+  echo "it is designed to run on linux."
+  echo "exiting..."
+fi
+
 # export is required because mv happens in a child shell
 export NEW_PROJECT_NAME="$1"
 export DEFAULT_PROJECT_NAME="skeleton"
@@ -12,13 +18,6 @@ export DEFAULT_PROJECT_NAME="skeleton"
 pushd `dirname $0` > /dev/null
 SCRIPTPATH=`pwd`
 popd > /dev/null
-
-
-SED_BK_OPTION=""
-if [[ `uname` == 'Darwin' ]]; then
-  SED_BK_OPTION='""'
-fi
-
 
 cd "$SCRIPTPATH/.."
   # avoid this error:
@@ -29,8 +28,7 @@ cd "$SCRIPTPATH/.."
   find . -type f -not -path "*/\.*"   \
                  -not -path "*/bin/*" \
                  -not -path "*/pkg/*" \
-                 -exec sed -i $SED_BK_OPTION \
-                          "s/$DEFAULT_PROJECT_NAME/$NEW_PROJECT_NAME/g" {} \;
+                 -exec sed -i "s/$DEFAULT_PROJECT_NAME/$NEW_PROJECT_NAME/g" {} \;
 
   find .  -name "$DEFAULT_PROJECT_NAME*"    \
           -not -path "*/\.*"   \
