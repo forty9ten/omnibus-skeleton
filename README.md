@@ -19,7 +19,7 @@ $ bin/omnibus project foo
 For this tutorial, I have simplified the process by providing a project template. We will also be using [Vagrant](http://www.vagrantup.com/) to startup the virtual machine, so you will need to install it before getting started.
 
 If you have any questions or run into any problems, feel free to drop me an email: <aaron@forty9ten.com>
-or hit me up on Twitter @aaronfeng (http://twitter.com/aaronfeng).
+or hit me up on Twitter [@aaronfeng] (http://twitter.com/aaronfeng).
 
 **Note**: I created this Vagrant template because Omnibus 3.0.0+ requires additional tools (such as Test Kitchen and Berkshelf). These tools are intended to make Omnibus better, but they also increase the barrier to entry for Omnibus if you are not already familiar with them.
 
