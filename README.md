@@ -67,7 +67,7 @@ Around line 15 you will see `dependency 'awesome'`.  This tells the Omnibus inst
 Now let's edit `config/software/awesome.rb` in order to provide installation instructions.
 The content of the file should look something like below:
 
-```
+```ruby
 name "awesome"
 default_version "1.0.0"
 
@@ -86,7 +86,7 @@ You might be wondering where the dependency definition is coming from.  By defau
 
 It doesn't actually go out to the Internet to retrieve those files during the build.  It has cloned that repository onto your VM when you did `bundle install`.  If you look inside the `Gemfile` you will see it points to the omnibus-software repo on Github:
 
-```
+```ruby
 # Install omnibus software
 gem 'omnibus', '~> 3.0'
 gem 'omnibus-software', github: 'opscode/omnibus-software'
@@ -104,7 +104,7 @@ The application is trivial but it will demonstrate how to package up all its dep
 
 Below is a completed version of `config/software/awesome.rb`:
 
-```
+```ruby
 name "awesome"
 default_version "master"
 
