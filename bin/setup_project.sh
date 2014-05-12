@@ -49,3 +49,8 @@ cd "$SCRIPTPATH/.."
   fi
 
 cd - > /dev/null
+
+# assume vagrant user will be executing this
+INSTALL_DIR=`grep -r install_path config/projects | tr -s ' ' | cut -d' ' -f2 | sed s/\'//g`
+sudo mkdir -p $INSTALL_DIR
+sudo chown vagrant:vagrant $INSTALL_DIR
