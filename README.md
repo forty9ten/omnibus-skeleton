@@ -26,25 +26,6 @@ Before we start we need to clone the project template.  Make sure you clone the 
 
 `git clone https://github.com/forty9ten/omnibus-skeleton.git omnibus-awesome`
 
------
-Since you will probably want to push this project to your own repository, we will remove the previous reference to the template git repository.  You can skip all the git commands if you don't intend to save the installer.
-
-`rm -rf .git`
-
-Add everything to git as a new project.
-
-`git init && git add .`
-
-Commit the files and push to your own repository of choice.
-
-`git commit -m 'init commit'`
-
-I would also preserve the `omnibus-` prefix in  your git repository.
-
-`git push .... omnibus-awesome`
-
--------
-
 ### Setup the VM
 
 Now we need to start up the CentOS VM and setup our Omnibus environment.  It will take sometime to download the VM, but this is a one time penalty.  Make sure you have fast Internet connection before proceeding.
