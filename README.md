@@ -129,8 +129,8 @@ dependency "bundler"
 source :git => "https://github.com/forty9ten/omnibus-example-ruby-app"
 
 build do
-  # vender the gems required by the app
-  bundle "install --path vender/bundle"
+  # vendor the gems required by the app
+  bundle "install --path vendor/bundle"
 
   # setup a script to start the app using correct ruby and bundler
   command "cat << EOF > #{install_dir}/bin/run.sh
@@ -151,7 +151,7 @@ end
 
 The `default_version` is the version of the application.  It can be any string.  In this case, it goes hand-in-hand with `source`.  `source` is a way to tell Omnibus where the application lives.  When `source` sees the `:git` symbol, it will clone the code from git.  Since we set the `default_version` to `master`, it will clone the master branch of the code.  The directory of the cloned code will match the `name` attribute (`awesome`).  This is usually not important, but useful to know for debugging.  If you want to checkout a specific version, tag name can be used as value of `default_version`.  There are other valid sources such as `:url` and `:path`.
 
-The `bundler` dependency is included because we use it to vendor all the application's Gems at build time.  Internally Omnibus knows how to execute Bundler, which is why the `bundle` command is available.  `--path vender/bundle` tells bundler to download all the Gems specified by the Gemfile into `vender/bundle` of the cloned Git repository.
+The `bundler` dependency is included because we use it to vendor all the application's Gems at build time.  Internally Omnibus knows how to execute Bundler, which is why the `bundle` command is available.  `--path vendor/bundle` tells bundler to download all the Gems specified by the Gemfile into `vender/bundle` of the cloned Git repository.
 
 Another thing that might seem magical is where `bundle` command is executed from.  The application directory specified by the `source` is totally managed by Omnibus.  The `bundle` command is executed within the context of source.  This is nice because we are free to change the installer name without worry about adjusting paths to align everything.
 
